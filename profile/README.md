@@ -16,7 +16,7 @@ Here's a brief guide to our most popular repositories and what's inside.
 * [cost-analyzer-helm-chart](https://github.com/kubecost/cost-analyzer-helm-chart): The Helm chart repository for Kubecost.
 * [docs](https://github.com/kubecost/docs): The source for the official Kubecost documentation at https://docs.kubecost.com.
 * [kubectl-cost](https://github.com/kubecost/kubectl-cost): The repository for the kubectl plug-in allowing users to predict costs of a Deployment before it's created.
-* [cluster-turndown](hhttps://github.com/kubecost/cluster-turndown): Automated turndown of Kubernetes clusters on a schedule!
+* [cluster-turndown](https://github.com/kubecost/cluster-turndown): Automated turndown of Kubernetes clusters on a schedule!
 
 ### Documentation
 
