@@ -13,6 +13,7 @@ Open source is at the heart of what we do at Kubecost, and the core is an OSS pr
 
 Here's a brief guide to our most popular repositories and what's inside.
 
+* [Kubecost Feature Requests and Bug reports](https://github.com/kubecost/features-bugs): A public repository for users and customers to file either feature requests or bug reports with the Kubecost application stack. For features or bugs relevant to only the Helm chart, please see below.
 * [cost-analyzer-helm-chart](https://github.com/kubecost/cost-analyzer-helm-chart): The Helm chart repository for Kubecost.
 * [docs](https://github.com/kubecost/docs): The source for the official Kubecost documentation at https://docs.kubecost.com.
 * [kubectl-cost](https://github.com/kubecost/kubectl-cost): The repository for the kubectl plug-in allowing users to predict costs of a Deployment before it's created.
