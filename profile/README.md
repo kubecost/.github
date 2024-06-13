@@ -1,7 +1,7 @@
 # Hey there 👋 and welcome to Kubecost! 
 ---
 
-![kubecost](kubecost_logo_horizontal_white.jpg)
+![kubecost](/kubecost_logo_horizontal_white.jpg)
 
 Kubecost is a monitoring application which provides real-time cost visibility and insights for teams using Kubernetes, helping you continuously reduce your cloud costs. Find out more about what Kubecost can do for you on our website [here](https://www.kubecost.com/).
 
