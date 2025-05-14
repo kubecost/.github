@@ -39,4 +39,4 @@ We thrive on the community and would love you to participate with us. Please con
 
 ### Bugs and Feature Requests
 
-Please submit bugs and feature requests at our online portal at https://support.kubecost.com.
+Please submit bugs and feature requests at [our online support portal](https://www.ibm.com/mysupport/s/?language=en_US).
