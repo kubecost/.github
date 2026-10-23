@@ -7,12 +7,10 @@
 name: PR-Agent
 
 on:
-  # GitHub registers this trigger before the job starts, so it cannot read the workflow lists in the
-  # preflight step. "*" lets any other workflow's completion wake that script. The two negated
-  # patterns are this workflow's name and file name; without them, its own completion would start
-  # another run. Keep them aligned with `name:` above and with the file name after you copy it.
+  # "**" matches every workflow name, including names containing "/". Exclude this workflow by name
+  # so its own completion does not start another run. Keep the exclusion aligned with `name:` above.
   workflow_run:
-    workflows: ["*", "!PR-Agent", "!pr-agent.yml"]
+    workflows: ["**", "!PR-Agent"]
     types: [completed]
   pull_request:
     # A new or reopened PR (the only trigger in a repository without other workflows), a draft marked
@@ -256,6 +254,12 @@ jobs:
           GITHUB_ACTION_CONFIG__WORKFLOW_SUMMARY_SHOW_DETAILED_OUTPUT: "true"
           GITHUB_ACTION_CONFIG__WORKFLOW_SUMMARY_SHOW_COST: "true"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Preflight owns push eligibility; use the same automatic tools for every accepted PR event.
+          # The separate push-command dispatcher is disabled so it cannot bypass the AUTO_* choices.
+          GITHUB_ACTION_CONFIG__PR_ACTIONS: '["opened", "reopened", "ready_for_review", "synchronize"]'
+          GITHUB_ACTION_CONFIG__HANDLE_PUSH_TRIGGER: "false"
+          # A tool failure must prevent the successful-review commit status below.
+          GITHUB_ACTION_CONFIG__FAIL_ON_TOOL_ERRORS: "true"
           AWS_USE_IMDS: "true"
           AWS_REGION: ${{ vars.KC_PR_AGENT_AWS_REGION || vars.AWS_REGION || 'us-west-2' }}
           AWS_REGION_NAME: ${{ vars.KC_PR_AGENT_AWS_REGION || vars.AWS_REGION || 'us-west-2' }}

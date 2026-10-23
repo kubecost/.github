@@ -7,10 +7,10 @@
 name: PR-Agent
 
 on:
-  # "*" lets any other workflow's completion wake the readiness check. The two negated patterns are this
-  # workflow's name and file name; without them, its own completion would start another run.
+  # "**" matches every workflow name, including names containing "/". Exclude this workflow by name
+  # so its own completion does not start another run. Keep the exclusion aligned with `name:` above.
   workflow_run:
-    workflows: ["*", "!PR-Agent", "!pr-agent.yml"]
+    workflows: ["**", "!PR-Agent"]
     types: [completed]
   pull_request:
     types: [opened, reopened, ready_for_review, synchronize]
