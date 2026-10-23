@@ -1,0 +1,25 @@
+workflow-templates/pr-agent-kubecost-internal.properties.json
+  s_7ef5c8d808bc3b::t_4f69f18609fab1 1-7
+workflow-templates/pr-agent-kubecost-internal.yml
+  s_7ef5c8d808bc3b::t_505b2c627ac9bf 1-40
+workflow-templates/pr-agent-kubecost-public.properties.json
+  s_7ef5c8d808bc3b::t_b2b70cc00aa4b4 1-7
+workflow-templates/pr-agent-kubecost-public.yml
+  s_7ef5c8d808bc3b::t_90a4ab4dd09031 1-388
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "ac915c6e1bac39c39fc7320723ab4c4124701c0c",
+  "prompts": {},
+  "sessions": {
+    "s_7ef5c8d808bc3b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d5502f46-cf19-44cb-89a4-818c4a59c1fb",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "jesse goodier <31039225+jessegoodier@users.noreply.github.com>"
+    }
+  }
+}
