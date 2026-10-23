@@ -1,0 +1,40 @@
+# PR-Agent for private and internal repositories in the kubecost organization.
+# Calls the shared workflow in kubecost/kc-pr-agent, which a public repository cannot use: public repositories
+# use the "PR-Agent (Kubecost, public repositories)" template instead.
+# Save it under .github/workflows/ (any file name) and keep `name:` below as "PR-Agent".
+# This is a copy; the source of truth is pr-agent-kubecost-internal.yml in kubecost/kc-pr-agent.
+
+name: PR-Agent
+
+on:
+  # "*" lets any other workflow's completion wake the readiness check. The two negated patterns are this
+  # workflow's name and file name; without them, its own completion would start another run.
+  workflow_run:
+    workflows: ["*", "!PR-Agent", "!pr-agent.yml"]
+    types: [completed]
+  pull_request:
+    types: [opened, reopened, ready_for_review, synchronize]
+  issue_comment:
+    types: [created]
+
+permissions: {}
+
+jobs:
+  pr-agent:
+    # A called workflow can use at most the permissions its caller grants.
+    permissions:
+      actions: read
+      contents: read
+      id-token: write
+      issues: write
+      pull-requests: write
+      statuses: write
+    uses: kubecost/kc-pr-agent/.github/workflows/pr-agent-kc-org.yml@v0.47
+    # A called workflow sees only the secrets passed here. Empty when the secret is unset.
+    secrets:
+      KC_PR_AGENT_OTEL_HEADERS: ${{ secrets.KC_PR_AGENT_OTEL_HEADERS }}
+    # Optional; each input falls back to the repository or organization variable.
+    # with:
+    #   required-workflows: '["Build-and-test", "pre-commit"]'
+    #   optional-workflows: '["Docker build"]'
+    #   review-every-push: true
