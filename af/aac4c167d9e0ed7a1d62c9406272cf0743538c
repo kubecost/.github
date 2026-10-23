@@ -1,0 +1,21 @@
+workflow-templates/pr-agent-kubecost-internal.yml
+  s_b82d67a2d3f9c9::t_e3c769f4d0376b 10-11,13
+workflow-templates/pr-agent-kubecost-public.yml
+  s_b82d67a2d3f9c9::t_e3c769f4d0376b 10-11,13,257-262
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "afaac4c167d9e0ed7a1d62c9406272cf0743538c",
+  "prompts": {},
+  "sessions": {
+    "s_b82d67a2d3f9c9": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a169b6-4747-75b0-8f7f-4a2528ee1697",
+        "model": "gpt-6-astra"
+      },
+      "human_author": "jesse goodier <31039225+jessegoodier@users.noreply.github.com>"
+    }
+  }
+}
