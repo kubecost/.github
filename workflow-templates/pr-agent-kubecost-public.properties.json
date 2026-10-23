@@ -1,0 +1,7 @@
+{
+  "name": "PR-Agent (Kubecost, public repositories)",
+  "description": "AI review of pull requests with PR-Agent on Bedrock, self-contained for public repositories that cannot call the internal shared workflow.",
+  "categories": [
+    "Automation"
+  ]
+}
